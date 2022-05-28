@@ -3,14 +3,14 @@
   become: yes
   gather_facts:
   tasks:
-  -  name: I wanna install openjdk8 on ubuntu nodes
-      apt:
-        name: "{{javaonubuntu}}"
-        state: present
-      when: ansible_os_family =="Debian"
+  - name: I wanna install openjdk8 on ubuntu nodes
+    apt:
+      name: "{{javaonubuntu}}"
+      state: present
+    when: ansible_os_family =="Debian"
   
-  -  name: I wanna install openjdk8 on Redhat nodes
-      apt:
-        name: "{{javaonRedHat}}"
-        state: present
-      when: ansible_os_family =="RedHat"
+  - name: I wanna install openjdk8 on Redhat nodes
+    yum:
+      name: "{{javaonRedHat}}"
+      state: present
+    when: ansible_os_family =="RedHat"
