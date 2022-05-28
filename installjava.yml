@@ -1,7 +1,7 @@
 ---
 - hosts: webserver
   become: yes
-  gather_facts:
+  gather_facts: yes
   tasks:
   - name: I wanna install openjdk8 on ubuntu nodes
     apt:
