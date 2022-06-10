@@ -1,0 +1,5 @@
+---
+- name: tomcat service file copy into ansible node side
+  template:
+      src: templates/mytomcatservicefile.j2   # Jinga Template And create a templates folder inside create a file mytomctservicefile.j2
+      dest: /etc/systemd/system/tomcat.service

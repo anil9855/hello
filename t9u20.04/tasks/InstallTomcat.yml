@@ -1,0 +1,20 @@
+---
+- name: download Tar file, that you copied from the Tomcat website
+  get_url:
+    url: https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.5/bin/apache-tomcat-8.5.5.tar.gz
+    dest: /home/ubuntu/apache-tomcat-8.5.5.tar.gz   # I'm Gonna download anywhere in the Node side 
+                                                    # And which file name apache-tomcat-8.5.5.tar.gz
+    force_basic_auth: yes
+
+- name: Create the directory, to install Tomcat to the /opt/tomcat directory
+  file:
+      path: /opt/tomcat
+      state: directory
+
+- name: extract tar file into /opt/tomcat directory
+  command:
+      cmd: sudo tar xzvf /home/ubuntu/apache-tomcat-8.5.5.tar.gz -C /opt/tomcat --strip-components=1
+      # Twist here we need to extract only once, onwards 2nd time should not be execute this task for that i'm gonna be creating Creates
+      creates: /opt/tomcat/LICENSE
+# If there is no file then only this task execute, If this file is exists It won't be execute
+# First time only we can execute, 2nd time not execute (File already exists)

@@ -1,2 +1,9 @@
 ---
 # tasks file for t9u20.04
+
+- include_tasks: InstallJava.yml
+- include_tasks: Create Tomcat User.yml
+- include_tasks: InstallTomcat.yml
+- include_tasks: UpdatePermissions.yml
+- include_tasks: CreateServiceFile.yml
+- include_tasks: starttomcat.yml
